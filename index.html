@@ -2,34 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Интернет-магазин</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-    <header class="menu padding-site">
+    <div id="app">
+    <header class="menu">
         <ul class="menu-list">
             <li class="menu-list-item active"><a class="active" href="#">Главная</a></li>
             <li class="menu-list-item"><a href="#">Каталог</a></li>
             <li class="menu-list-item"><a href="#">Контакты</a></li>
         </ul>
         <form action="" class="search-form">
-        <input type="text" class="search" name="search">
-        <button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
+        <input type="text" class="search" name="search" v-model = "inputText">
+        <button class="search-btn" type="submit" @click = "filter($event)"><i class="fas fa-search"></i></button>
         </form>
-        <button class="btn-cart" type="button"><i class="fas fa-shopping-basket"></i></button>
+        <button class="btn-cart" type="button" @click = "toggle"><i class="fas fa-shopping-basket"></i></button>
     </header>
     <main class="padding-site">
-        <div class="products"></div>
+        <div class="products">
+            <div class="product-item" v-for="product of filtredGoods" :key="product.id_product" v-if = "filtredGoods.length">
+                <img :src="imgGoods" alt="Some foto">
+                <h3 class="item-name">{{ product.product_name }}</h3>
+                <p class="item-price">{{ product.price }} руб.</p>
+                <button class="buy-btn" @click="addProduct(product)">Купить</button>
+            </div>
+            <p class="noCharge" v-if = "!filtredGoods.length">Товаров нет</p>
+        </div>
     </main>
-    <div class="cart">
-        <div class="overlay"></div>
-        <div class="inner">
-            <div class="items"></div>
-            <div class="total"></div>
+    <div class="cart" v-if = "showCart">
+        <div class="overlay" @click = "toggle"></div>
+        <div class="inner" v-if = "cartGoods.length">
+            <div class="items">
+                <div class="product-item" v-for="product of cartGoods" :key="product.id_product">
+                    <img :src="imgGoods" alt="Some foto">
+                    <h3 class="item-name">{{ product.product_name }}</h3>
+                    <p class="item-price">{{ product.price }} руб.</p>
+                    <button class = "plus-btn" @click="addProduct(product)">+</button>
+                    <button class = "min-btn" @click = "minusProduct(product)">-</button>
+                    <button class = "del-btn" @click = "remove(product)">Удалить</button>
+                </div>
+            </div>
+            <div class="total">Итоговая цена: {{ totalPrice }} руб.</div>
+        </div>
+        <div class="inner"  v-if = "!cartGoods.length">
+            <p class="noCharge">Товаров нет</p>
         </div>
     </div>
     <img src="" alt="">
-    <script src="js/main.js"></script>
+    </div>
+    <script src="vue.js"></script>
 </body>
 </html>
