@@ -24,14 +24,12 @@
     <main class="padding-site">
     <product-items
         :filtred-goods="filtredGoods" 
-        :img-goods="imgGoods"
         @addproduct="addproduct">
     </product-items>   
     </main>
     <cart-items  
         v-show = "showCart"
         :cart-goods = "cartGoods"
-        :img-goods="imgGoods"
         :total-price = "totalPrice"
         @addproduct="addproduct"
         @minusproduct = "minusproduct"

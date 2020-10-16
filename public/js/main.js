@@ -11,8 +11,7 @@ const app = new Vue ({
         filtredGoods: [],
         cartGoods: [],
         showCart: false,
-        totalPrice: 0,
-        imgGoods: 'https://placehold.it/200x150'
+        totalPrice: 0
     },
     methods: {
         getProducts(url){

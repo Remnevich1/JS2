@@ -1,5 +1,5 @@
 Vue.component('cart-items', {
-    props: ['cartGoods', 'imgGoods', 'totalPrice'],
+    props: ['cartGoods', 'totalPrice'],
     template: `<div class="cart">
     <div class="overlay" @click = "$emit('toggle','')"></div>
     <div class="inner" v-if = "cartGoods.length">
@@ -7,8 +7,7 @@ Vue.component('cart-items', {
             <cart-item
                 v-for="product of cartGoods"
                 :key="product.id_product"
-                :product = "product"
-                :img-goods="imgGoods">
+                :product = "product">
             </cart-item>
         </div>
         <div class="total">Итоговая цена: {{ totalPrice }} руб.</div>
@@ -20,16 +19,15 @@ Vue.component('cart-items', {
 })
 
 Vue.component('cart-item', {
-    props: ['product', 'imgGoods'],
+    props: ['product'],
     template: `
     <div class="product-item">
-        <img :src="imgGoods" alt="Some foto">
+        <img :src="product.img" alt="Some foto">
         <h3 class="item-name">{{ product.product_name }}</h3>
         <p class="item-price">{{ product.price }} руб.</p>
-        <p>Количество: {{ product.count }}</p>
+        <p class ="quant">Количество: {{ product.count }}</p>
         <button class = "plus-btn" @click= "$parent.$emit('addproduct', product)">+</button>
         <button class = "min-btn" @click = "$parent.$emit('minusproduct', product)">-</button>
-        <button class = "del-btn" @click = "$parent.$emit('remove', product)">Удалить</button>
     </div>
     `
 })
