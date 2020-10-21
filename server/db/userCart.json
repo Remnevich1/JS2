@@ -1,4 +1,26 @@
 {
-  "totalPrice": 0,
-  "cartGoods": []
+  "totalPrice": 18900,
+  "cartGoods": [
+    {
+      "count": 10,
+      "id_product": 784,
+      "product_name": "Коврик",
+      "price": 50,
+      "img": "http://localhost:3000/img/mousepad-removebg-preview.png"
+    },
+    {
+      "count": 4,
+      "id_product": 456,
+      "product_name": "Мышка",
+      "price": 1000,
+      "img": "http://localhost:3000/img/mouse-removebg-preview.png"
+    },
+    {
+      "count": 9,
+      "id_product": 124,
+      "product_name": "Клавиатура",
+      "price": 1600,
+      "img": "http://localhost:3000/img/204629.200x0.png"
+    }
+  ]
 }

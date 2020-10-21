@@ -3,30 +3,30 @@
     "id_product": 124,
     "product_name": "Клавиатура",
     "price": 1600,
-    "img": "/img/204629.200x0.png"
+    "img": "http://localhost:3000/img/204629.200x0.png"
   },
   {
     "id_product": 457,
     "product_name": "Джойстик",
     "price": 3000,
-    "img": "/img/gamepad-removebg-preview.png"
+    "img": "http://localhost:3000/img/gamepad-removebg-preview.png"
   },
   {
     "id_product": 123,
     "product_name": "Ноутбук",
     "price": 45600,
-    "img": "/img/laptop-removebg-preview.png"
+    "img": "http://localhost:3000/img/laptop-removebg-preview.png"
   },
   {
     "id_product": 456,
     "product_name": "Мышка",
     "price": 1000,
-    "img": "/img/mouse-removebg-preview.png"
+    "img": "http://localhost:3000/img/mouse-removebg-preview.png"
   },
   {
     "id_product": 784,
     "product_name": "Коврик",
     "price": 50,
-    "img": "/img/mousepad-removebg-preview.png"
+    "img": "http://localhost:3000/img/mousepad-removebg-preview.png"
   }
 ]
